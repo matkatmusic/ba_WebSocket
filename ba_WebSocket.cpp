@@ -528,6 +528,8 @@ bool WebSocketServer::sendMessageCompressed (const MemoryBlock& b)
 {
     // const auto compressed = CompressionHelper::CompressUsingZlib (b);
     // jassert (compressed.getSize () > 0);
+
+    jassertfalse; //compression not implemented yet
     return sendMessage (b);
 }
 
@@ -538,7 +540,7 @@ bool WebSocketServer::sendMessage (const juce::String& data) {
 
 
 juce::String WebSocketServer::computeWebSocketAcceptKey(const juce::String& key) {
-    static const juce::String magicGUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
+    static const juce::String magicGUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"; //this is a gobally unique identifier, see RFC 6455 (https://www.rfc-editor.org/rfc/rfc6455)
     juce::String combined = key + magicGUID;
 
     // Assuming TinySHA1 is correctly implemented
