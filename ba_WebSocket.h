@@ -90,7 +90,7 @@ private:
     CriticalSection clientSocketLock;
     
     int port = -1;
-    const Range<int> legalPortRange { 1024, 65535 };
+    const Range<int> legalPortRange { 8001, 65535 };
     std::atomic<bool> running { false };
 
     bool handleHandshake(juce::StreamingSocket* clientSocket);
