@@ -2,6 +2,9 @@
 
 #include "ba_WebSocket.h"
 #include "TinySHA1/TinySHA1.hpp"
+#if JUCE_WINDOWS
+#include <WinSock2.h>
+#endif
 
 using namespace BA;
 
